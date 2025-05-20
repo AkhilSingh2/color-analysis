@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  color-analysis-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: color-analysis-api
+    ports:
+      - "5001:5000"
+    environment:
+      - PREDICTOR_PATH=/app/models/shape_predictor_68_face_landmarks.dat
+    restart: unless-stopped 
