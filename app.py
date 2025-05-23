@@ -147,7 +147,7 @@ with open(os.path.join(os.path.dirname(__file__), 'static', 'swagger.json'), 'w'
     json.dump(swagger_json, f)
 
 app = Flask(__name__, static_folder='static')
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Setup Swagger UI
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI
